@@ -1,3 +1,3 @@
 # Sudoku
-chef de projet : Marvin Vanelsland  
+chef de projet : Marvin Vanelsland
 Collaborateur : Stevan Lardeur
