@@ -11,12 +11,9 @@ class Stack:
             >>> p.top == None
             True
         """
-<<<<<<< HEAD
+
         self.stack=[]
         self.top=None
-=======
-        pass
->>>>>>> b3639c83714b1a04c88601a8391e994798ad3d0a
         
     def push(self, el):
         """
@@ -33,12 +30,8 @@ class Stack:
             >>> p.top == (12, 1, 9)
             True
         """
-<<<<<<< HEAD
         self.stack.append(el)
         self.top=el
-=======
-        pass
->>>>>>> b3639c83714b1a04c88601a8391e994798ad3d0a
     
     def empty(self):
         """
@@ -52,11 +45,9 @@ class Stack:
             >>> p.empty()
             False
         """
-<<<<<<< HEAD
+
         return len(self.stack)==0
-=======
-        pass
->>>>>>> b3639c83714b1a04c88601a8391e994798ad3d0a
+
         
     def pop(self):
         """
@@ -82,7 +73,6 @@ class Stack:
             >>> p.pop()
             13
         """
-<<<<<<< HEAD
         if not self.empty():
             el= self.stack.pop()
             if not self.empty():
@@ -93,9 +83,7 @@ class Stack:
                 
             return el
         return None
-=======
-        pass
->>>>>>> b3639c83714b1a04c88601a8391e994798ad3d0a
+
         
 if __name__ == '__main__':
     import doctest
