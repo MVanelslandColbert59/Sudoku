@@ -1,3 +1,5 @@
+from case import Case
+
 class Grid:
     
     def __init__(self, puzzle = 81*'.'):
@@ -14,7 +16,8 @@ class Grid:
         self.puzzle = puzzle
         self.full = self.puzzle.count('.') == 0
         self.initCases()
-        self.puzzleNow = self.casesToString()            
+        self.puzzleNow = self.casesToString()
+        
         
     def loadFromFile(num):
         """
@@ -25,12 +28,13 @@ class Grid:
             >>> Grid.loadFromFile(0).puzzle[:10]
             '4.....8.5.'
         """
-        f = open("../data/grids.sud", 'r')
+        f = open("data/grids.sud", 'r')
         buff = f.readlines()
         f.close()
         return Grid(buff[num][:-1])
     
     def initCases(self):
+            
         """
             Initialise une liste de 81 cases représentée par l'attribut cases,
             avec leur valeur suivant le puzzle.
@@ -45,7 +49,13 @@ class Grid:
             >>> S.cases[13].region == 2
             True
         """
-        pass
+        self.cases = []
+        
+        for i in range(81):
+            if self.puzzle[i] == '.':
+                self.cases.append(Case(i))
+            else:
+                self.cases.append(Case(i, int(self.puzzle[i])))
                 
     def casesToString(self):
         """
@@ -66,8 +76,15 @@ class Grid:
             >>> S.casesToString()[0] == '5'
             True
         """
-        pass
+        S = ""
+        for i in range(81):
+            if self.cases[i].value == None:
+                S += '.'
+            else:
+                S += f"(self.cases[i].value)"
+        return S
                 
+            
     def setValue(self, position, value):
         """
             Méthode permettant de modifier la valeur d'une case à une position donnée.
@@ -85,7 +102,6 @@ class Grid:
             False
         """
         pass
-                
     def __repr__(self):
         """
             Méthode de représentation d'un Sudoku
