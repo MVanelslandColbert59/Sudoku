@@ -18,13 +18,12 @@ class Case:
             >>> Case(0).region, Case(80).region, Case(25).region
             (1, 9, 3)
         """
-        self.position=pos
-        self.value=value
-        self.row=pos%9
-        self.line=pos//9
-        self.region=pos//9+1
+        self.position = pos
+        self.row      = pos%9    # Colonne
+        self.line     = pos//9   # Ligne
+        self.value    = value
+        self.region   = (self.line//3)*3+self.row//3+1
         
-    
     def setValue(self, value):
         """
             Mutateur de l'attribut value
@@ -37,7 +36,7 @@ class Case:
             >>> c.value == 8
             True
         """
-        self.value=value
+        self.value = value
         
 if __name__ == '__main__':
     import doctest
